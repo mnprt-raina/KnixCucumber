@@ -4,7 +4,7 @@ Scenario: Size shown below image
 Given User launches KNIX application
 Then User clicks promopop
 Then User clicks sizedropdown
-Then User validates size from the sizelist dropdown with imgcaption
+Then User validates fittingsize from the sizedropdown with imgcaption
 
 #Examples:
 #|Size|

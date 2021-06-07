@@ -1,5 +1,8 @@
 package helper;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public final class Constants {
 
 	public static final String RUNCONFIG_FILE = "/src/test/resources/configuration/runConfig.properties";
@@ -10,4 +13,5 @@ public final class Constants {
 	public static final String ENVIRONMENT = "environment";
 	
 	public static final String APPURL = "app_url";
+	
 }

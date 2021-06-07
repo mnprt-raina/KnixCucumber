@@ -14,7 +14,7 @@ import cucumber.api.testng.TestNGCucumberRunner;
 import helper.Constants;
 
 @CucumberOptions(
-		features = "src/main/java/Features",
+		features = "src/main/java/Features/SizeSelect.feature",
 		glue = {"stepDefinitions"},
 		tags = {"~@Ignore"},
 		format = {

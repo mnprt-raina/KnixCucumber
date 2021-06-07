@@ -1,19 +1,17 @@
 package stepDefinitions;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
+import org.apache.commons.lang.StringUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import MyRunner.RunnerSupport;
@@ -21,6 +19,7 @@ import MyRunner.TestRunner;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import helper.Constants;
+import sun.nio.fs.DefaultFileSystemProvider;
 
 public class ToDoStepDefinition extends TestRunner {
 
@@ -44,40 +43,87 @@ public class ToDoStepDefinition extends TestRunner {
 
 	}
 
-	@Then("^User validates size from the (.*) dropdown with (.*)$")
-	public void select_the_size(String dropdownList, String captionUnderActiveImage){
+	@Then("^User validates (.*) from the (.*) with (.*)$")
+	public void select_the_size(String fits,String dropdown, String captionUnderActiveImage){
 		List<WebElement> allSizes;
 		String imageCaptionText;
-		allSizes = getWebElements(dropdownList);
-		imageCaptionText = getWebElement(captionUnderActiveImage).getText();
 
-		for(int i = 0; i<=allSizes.size(); i++) {
-			String toSelectSize = allSizes.get(i).getText();
+		try{
+			allSizes = getWebElements(fits);
 
-			allSizes.get(i).click(); 
-			imageCaptionText = imageCaptionText.substring(0, imageCaptionText.indexOf(","));
-			imageCaptionText = imageCaptionText.trim();
-			String nameTerm[] = imageCaptionText.split(" ");
+			for(int i = 0; i<=allSizes.size()-1; i++) {
+				String selectedSizeText = allSizes.get(i).getText();
 
-			if(toSelectSize.contains(nameTerm[3])) {
-				System.out.println("size found");
-			}
-		} 
+				selectedSizeText = selectedSizeText.replaceAll("Fits", "");
+				String sizeArr[] = selectedSizeText.split("\n");
+
+				if(selectedSizeText.isEmpty()) {
+					System.out.println("report failure. Size must be present for loop : "+i);
+				}else {
+
+					allSizes.get(i).click(); 
+					imageCaptionText = getWebElement(captionUnderActiveImage).getText();
+
+					boolean sizeMatched = false;
+
+					if(imageCaptionText.isEmpty()) {
+						System.out.println("report failure. caption must be present for size : "+selectedSizeText);
+					}else {
+						String individualSize[] = sizeArr[0].split(",");
+
+						for(int j=0;j<individualSize.length;j++) {
+							if(imageCaptionText.contains(individualSize[j])) {
+								sizeMatched = true;
+								break;
+							}
+						}
+
+						if(sizeMatched) {
+							System.out.println("size found . selectedSizeText :"+selectedSizeText+" and caption image : "+imageCaptionText);
+						}else {
+							System.out.println("size mismatch . selectedSizeText :"+selectedSizeText+" and caption image : "+imageCaptionText);
+						}
+
+					}
+
+				}
+				//open the drodown again
+				getWebElement(dropdown).click();
+				System.out.println();
+
+			} 
+		}catch(Exception e) {
+			System.out.println(e.getMessage());
+		}
+
 	}
 
 
-	@Then("^User validates if (.*) in the (.*) is in a sorted order$")
-	public void list_sort(String listValues) {
-		List<String> listExpected = Arrays.asList("1", "2", "3", "4", "5", "6", "6+", "7","7+", "8", "8+");
-		List<WebElement> listActual;
+	@Then("^User validates if the (.*) is sorted$")
+	public void list_sort(String dropdownList) {
 
-		listActual = getWebElements(listValues);
+		String expectedSizes = "1,2,3,4,5,6,6+,7,7+,8,8+";
 
-		for(int i = 0; i<=listActual.size(); i++) {
-			if (listActual.get(i).equals(listExpected.get(i))) {
-				System.out.println("The list is in sorted order");
-			};
+		List<WebElement> allSizes;
+		allSizes = getWebElements(dropdownList);
+
+		String actualSizes = "";
+
+		for(WebElement ele: allSizes) { 
+			String a = ele.getText();
+			actualSizes = actualSizes + ","+a;
 		}
+
+		actualSizes = actualSizes.substring(1,actualSizes.length());
+
+		System.out.println(actualSizes);
+
+		if(expectedSizes.equals(actualSizes)) {
+			System.out.println("pass");
+		}else {
+			System.out.println("failed");
+		}
+
 	}
 
 	@Then("^User clicks (.*)$")
@@ -87,26 +133,35 @@ public class ToDoStepDefinition extends TestRunner {
 		ele.click();
 	}
 
-	@Then("^Validate user is able to see the selected size in the (.*)$")
-	public void validate_user_sees_selected_size()
+	@Then("^Validate user is able to see the selected (.*) in the (.*)$")
+	public void validate_user_sees_selected_size(String fittingsize, String dropdown)
 	{
-		WebElement ele;
-		Map<String, String> map = new HashMap<>();
-		map.put("size 1", "Fits 32A, 34A, 32B");
-		map.put("size 2", "Fits 36A, 34B, 32C");
-		map.put("size 3", "Fits 36B, 38B, 36C");
-		map.put("size 4", "Fits 34C, 32D, 34D");
-		map.put("size 5", "Fits 38C, 40C, 36D, 38D");
-		map.put("size 6", "Fits 32DD, 34DD, 32E, 34E");
-		map.put("size 6+", "Fits 32F, 34F, 32G, 34G");
-		map.put("size 7", "Fits 36DD, 38DD, 36E, 38E");
-		map.put("size 7+", "Fits 36F, 38F, 36G, 38G");
-		map.put("size 8", "Fits 40D, 42D, 40DD, 42DD, 40E, 42E");
-		map.put("size 8+", "Got the data from Requirements");
+		List<WebElement> allSizes;
+		WebElement dropButton;
+		
+		allSizes = getWebElements(fittingsize);
+		dropButton = getWebElement(dropdown);
+		
+		for(int i = 0; i<=allSizes.size()-1; i++) {
+			dropButton.click();
+			String toSelect = allSizes.get(i).getText();
+			toSelect = "Size " + toSelect;
+			
+			allSizes.get(i).click();
+			
+			String actual = getWebElement(dropdown).getText();
+			
+			if(toSelect.equals(actual)) {	
+				System.out.println("shows selected item");
+			}else {
+				System.out.println("report failure. Selected item is not shown");
+			}
+			
+		}
 		
 		
 		
-		
+
 	}
 
 	public WebElement getWebElement(String locator){
@@ -133,7 +188,4 @@ public class ToDoStepDefinition extends TestRunner {
 		ele.sendKeys(value);
 		ele.sendKeys(Keys.ENTER);
 	}
-
-
-
 }
