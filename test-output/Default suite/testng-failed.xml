@@ -3,13 +3,14 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="stepDefinitions.ToDoStepDefinition">
+      <class name="MyRunner.TestRunner">
         <methods>
           <include name="feature" invocation-numbers="0"/>
+          <include name="create"/>
           <include name="tearDownClass"/>
           <include name="setUpCucumber"/>
         </methods>
-      </class> <!-- stepDefinitions.ToDoStepDefinition -->
+      </class> <!-- MyRunner.TestRunner -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

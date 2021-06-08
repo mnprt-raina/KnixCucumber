@@ -5,8 +5,12 @@ import java.util.Properties;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 
 import cucumber.api.CucumberOptions;
 import cucumber.api.testng.CucumberFeatureWrapper;
@@ -14,17 +18,11 @@ import cucumber.api.testng.TestNGCucumberRunner;
 import helper.Constants;
 
 @CucumberOptions(
-		features = "src/main/java/Features/SizeSelect.feature",
+		features = "src/main/java/Features/SizeSort.feature",
 		glue = {"stepDefinitions"},
-		tags = {"~@Ignore"},
-		format = {
-				"pretty",
-				"html:target/cucumber-reports/cucumber-pretty",
-				"json:target/cucumber-reports/CucumberTestReport.json",
-				"rerun:target/cucumber-reports/rerun.txt"
-		},plugin = "json:target/cucumber-reports/CucumberTestReport.json")
-
-public class TestRunner  {
+		monochrome = true)
+		
+public class TestRunner { 
 
 	private TestNGCucumberRunner testNGCucumberRunner;
 
@@ -33,6 +31,16 @@ public class TestRunner  {
 	protected static Properties propOR;
 	protected static Properties propConfig;
 
+	public static ExtentReports extent;
+	
+	@BeforeSuite
+	public void create(){
+		extent = new ExtentReports();
+		ExtentSparkReporter spark = new ExtentSparkReporter("Spark.html");
+		extent.attachReporter(spark);
+		
+	}
+	
 	@BeforeClass(alwaysRun = true)
 	public void setUpCucumber() {
 		testNGCucumberRunner = new TestNGCucumberRunner(this.getClass());
@@ -40,9 +48,8 @@ public class TestRunner  {
 		final String configFile = System.getProperty("user.dir")+ Constants.RUNCONFIG_FILE;
 		RunnerSupport.prepareTestEnv(configFile);
 		
-		
 	}
-
+	
 	@Test(groups = "cucumber", description = "Runs Cucumber Feature", dataProvider = "features")
 	public void feature(CucumberFeatureWrapper cucumberFeature) {
 		testNGCucumberRunner.runCucumber(cucumberFeature.getCucumberFeature());
@@ -55,6 +62,7 @@ public class TestRunner  {
 
 	@AfterClass(alwaysRun = true)
 	public void tearDownClass() throws Exception {
+        
 		testNGCucumberRunner.finish();
 	}
 }
