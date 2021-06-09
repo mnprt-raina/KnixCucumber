@@ -225,7 +225,7 @@ public class ToDoStepDefinition extends TestRunner{
 
 				String textOfAddToBag = getWebElement("additemtobag").getText();
 				
-				if(!textOfAddToBag.equals("Add to Bag") || getWebElement("stockinfo").getText().contains("Sorry")){
+				if(!textOfAddToBag.equals("Add to Bag") || getText("stockinfo").contains("Sorry")){
 					if(e.getAttribute("class").contains("disabled")) {
 						CustReporter.pass(test, extent,"the "+ colourName +" button is disabled");
 					}else {
@@ -324,6 +324,20 @@ public class ToDoStepDefinition extends TestRunner{
 		wait.until(ExpectedConditions.presenceOfElementLocated(by));
 		elements = driver.findElements(by);
 		return elements;
+	}
+	
+	public String getText(String locator){
+		WebElement ele = null;
+		String res="";
+		try {
+			ele = getWebElement(locator);
+			if(ele!=null)
+				res = ele.getText();
+		}catch(Exception e){
+			//extent logging
+		}
+
+		return res;
 	}
 
 	public void getWebElementAndSendKeys(String value, String locator){
