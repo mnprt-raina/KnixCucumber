@@ -32,17 +32,17 @@ public class ToDoStepDefinition extends TestRunner{
 	static Properties OR;
 
 	ExtentTest test;
-	
+
 	static {
 		final String ORFile = System.getProperty("user.dir")+ Constants.OBJECTREPOSITORY;
 		OR = RunnerSupport.loadOR(ORFile);
 	}
-	
+
 	@Before
 	public void getName(Scenario s) {
 		test = extent.createTest(s.getName());
 	}
-	
+
 	@After
 	public void destroy() {
 		driver.quit();
@@ -63,7 +63,7 @@ public class ToDoStepDefinition extends TestRunner{
 			System.setProperty("webdriver.edge.driver",System.getProperty("user.dir")+"//src//test//resources//drivers//msedgedriver.exe");
 			driver = new EdgeDriver();
 		}
-		
+
 		driver.get(System.getProperty(Constants.APPURL));
 		driver.manage().window().maximize();
 
@@ -84,7 +84,7 @@ public class ToDoStepDefinition extends TestRunner{
 				String sizeArr[] = selectedSizeText.split("\n");
 
 				if(selectedSizeText.isEmpty()) {
-					CustReporter.fail(test, extent,"report failure. Size must be present for loop : "+i);
+					CustReporter.fail(test, extent,"Size must be present for loop : "+i);
 				}else {
 
 					allSizes.get(i).click(); 
@@ -93,7 +93,7 @@ public class ToDoStepDefinition extends TestRunner{
 					boolean sizeMatched = false;
 
 					if(imageCaptionText.isEmpty()) {
-						test.log(Status.INFO,"report failure. caption must be present for size : "+selectedSizeText);
+						test.log(Status.INFO,"Caption must be present for size : "+selectedSizeText);
 					}else {
 						String individualSize[] = sizeArr[0].split(",");
 
@@ -109,14 +109,11 @@ public class ToDoStepDefinition extends TestRunner{
 						}else {
 							CustReporter.fail(test, extent,"size mismatch . selectedSizeText :"+selectedSizeText+" and caption image : "+imageCaptionText);
 						}
-
 					}
-
 				}
 				//open the drodown again
 				getWebElement(dropdown).click();
 				System.out.println();
-
 			} 
 		}catch(Exception e) {
 			test.log(Status.INFO,e.getMessage());
@@ -137,7 +134,7 @@ public class ToDoStepDefinition extends TestRunner{
 
 		for(WebElement ele: allSizes) { 
 			String a = ele.getText();
-			actualSizes = actualSizes + ","+a;
+			actualSizes = actualSizes + ","+ a;
 		}
 
 		actualSizes = actualSizes.substring(1,actualSizes.length());
@@ -145,13 +142,11 @@ public class ToDoStepDefinition extends TestRunner{
 		test.log(Status.INFO,actualSizes);
 
 		if(expectedSizes.equals(actualSizes)) {
-			CustReporter.pass(test, extent, "passed");
-			extent.flush();
-		}else {
-			CustReporter.fail(test, extent, "failed");
-			extent.flush();
+			CustReporter.pass(test, extent, "passed");	
 		}
-
+		else{
+			CustReporter.fail(test, extent, "failed");	
+		}
 	}
 
 	@Then("^User clicks (.*)$")
@@ -180,9 +175,9 @@ public class ToDoStepDefinition extends TestRunner{
 			String actual = getWebElement(dropdown).getText();
 
 			if(toSelect.equals(actual)) {	
-				CustReporter.pass(test, extent,"shows selected item");
+				CustReporter.pass(test, extent,"Shows selected item");
 			}else {
-				CustReporter.fail(test, extent,"report failure. Selected item is not shown");
+				CustReporter.fail(test, extent,"Selected item is not shown");
 			}
 
 		}	
@@ -201,65 +196,48 @@ public class ToDoStepDefinition extends TestRunner{
 		}
 
 	}
-	
-	@Then("^^Validate (.*) and (.*) for all (.*) for all (.*) in (.*)$")
-	public void validateLimitedColours(String outOfStock,String emailWhenAvail,String limcolour,String fittingSize,String dropdown) {
-		
-		List<WebElement> colour = getWebElements(limcolour);
-		
-		for(WebElement e: colour) {
-			
-			String colourName = e.getAttribute("data-text");
-			
-			List<WebElement> allSizes = getWebElements(fittingSize);
-			
-			e.click();
-			
-			for(int i=0;i<allSizes.size();i++) {
-				getWebElement(dropdown).click();
-				
-				String text = allSizes.get(i).getText();
-				
-				allSizes.get(i).click();
-				
-				String textArr[] = text.split("Fits");
-				
-				if( getWebElement(outOfStock)!=null) {
-					String actualOutOfStockMsg = getWebElement(outOfStock).getText();
-				
-					String expectedOutOfStockMsg = "Sorry - we're out of "+ textArr[0] + " in this color";
-					if(actualOutOfStockMsg.equals(expectedOutOfStockMsg))
-					{
-						//then validate the colour has been crossed out
-						if (e.getAttribute("class").contains("disabled")) {
-							CustReporter.pass(test, extent,"the "+ colourName +" button is disabled");
-						}else {
-							CustReporter.fail(test, extent,"the "+ colourName +" button is enabled");
-						}
-					}
-				
-				}else {
-					CustReporter.fail(test, extent,"Out Of Stock info is not visible");
-				}
-				
-				//validate the emailWhenAvailable button
-				WebElement ele;
-				ele = getWebElement(emailWhenAvail);
 
-				String eleText = ele.getText();
+	@Then("^Validate (.*) for all (.*)$")
+	public void validateLimitedColours(String limcolour,String fittingSize) {
+
+		List<WebElement> colour = getWebElements(limcolour);
+
+		for(WebElement e: colour) {
+
+			String colourName = e.getAttribute("data-text");
+
+			List<WebElement> allSizes = getWebElements(fittingSize);
+
+			e.click();
+
+			CustReporter.info(test, extent,"the colour is : "+ colourName);
+
+			for(int i=0;i<allSizes.size();i++) {
+				getWebElement("sizedropdown").click();
+
+				String text = allSizes.get(i).getText();
+
+				allSizes.get(i).click();
+
+				String textArr[] = text.split("Fits");
+
+				CustReporter.info(test, extent,"the size is : "+ text);
+
+				String textOfAddToBag = getWebElement("additemtobag").getText();
 				
-				if (eleText.equals(Constants.EMAILWHENAVAILABLE)) {
-					CustReporter.pass(test, extent,"Email Me When Available is visible");
-				}else {
-					CustReporter.fail(test, extent,"Email Me When Available is not visible");
+				if(!textOfAddToBag.equals("Add to Bag") || getWebElement("stockinfo").getText().contains("Sorry")){
+					if(e.getAttribute("class").contains("disabled")) {
+						CustReporter.pass(test, extent,"the "+ colourName +" button is disabled");
+					}else {
+						CustReporter.fail(test, extent,"the "+ colourName +" button is enabled");
+					}
 				}
+				
 			}
-			
 		}
-		
 	}
-	
-	
+
+
 	@Then("^Validate that the (.*) is disabled$")
 	public void validate_button_disabled(String mainButton) {
 		WebElement ele;
@@ -272,24 +250,76 @@ public class ToDoStepDefinition extends TestRunner{
 		}
 
 	}
-	
+
+	@Then("^Validate user is unable to add item to the bag$")
+	public void unable_to_add_to_cart(){
+		WebElement e = getWebElement("additemtobag");
+		e.click();
+		if(e.getText().equals("Select Size")){
+			CustReporter.pass(test, extent,"User is unable to add item to cart without selecting size");
+		}else {
+			CustReporter.fail(test, extent,"User is able to add item to cart without selecting size");
+		}
+	}
+
+	@Then("^Validate user is able to add (.*) to the bag$")
+	public void able_to_add_to_cart(String bagItem) {
+		List<WebElement> allSizes;
+		WebElement dropButton, cartButton, bag;
+
+		allSizes = getWebElements("fittingsize");
+		dropButton = getWebElement("sizedropdown");
+
+		dropButton.click();
+		allSizes.get(1).click();
+
+		cartButton= getWebElement("additemtobag");
+		cartButton.click();
+
+		bag = getWebElement(bagItem);
+
+		if (bag.getAttribute("class").contains("yourBag")) {
+			CustReporter.pass(test, extent,"The item has been added to the cart");
+		}else {
+			CustReporter.fail(test, extent,"The item has not been added to the cart");
+		}
+
+	}
+
 	public WebElement getWebElement(String locator){
 		WebElement ele = null;
 		try {
-			WebDriverWait wait = new WebDriverWait(driver, 20);
+			Long time = Long.valueOf(System.getProperty(Constants.WAITTIME));
+			WebDriverWait wait = new WebDriverWait(driver, time);
 			By by = By.xpath(OR.getProperty(locator));
 			wait.until(ExpectedConditions.presenceOfElementLocated(by));
 			ele = driver.findElement(by);
 		}catch(Exception e){
 			//extent logging
 		}
-		
+
+		return ele;
+	}
+
+	public WebElement getWebElement(String locator,String override){
+		WebElement ele = null;
+		try {
+			Long time = Long.valueOf(override);
+			WebDriverWait wait = new WebDriverWait(driver, time);
+			By by = By.xpath(OR.getProperty(locator));
+			wait.until(ExpectedConditions.presenceOfElementLocated(by));
+			ele = driver.findElement(by);
+		}catch(Exception e){
+			//extent logging
+		}
+
 		return ele;
 	}
 
 	public List<WebElement> getWebElements(String locator){
 		List<WebElement> elements;
-		WebDriverWait wait = new WebDriverWait(driver, 20);
+		Long time = Long.valueOf(System.getProperty(Constants.WAITTIME));
+		WebDriverWait wait = new WebDriverWait(driver,time);
 		By by = By.xpath(OR.getProperty(locator));
 		wait.until(ExpectedConditions.presenceOfElementLocated(by));
 		elements = driver.findElements(by);

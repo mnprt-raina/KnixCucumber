@@ -18,19 +18,16 @@ import cucumber.api.testng.TestNGCucumberRunner;
 import helper.Constants;
 
 @CucumberOptions(
-		features = "src/main/java/Features/SizeSort.feature",
+		features = "src/main/java/Features/OutOfStock.feature",
 		glue = {"stepDefinitions"},
 		monochrome = true)
 		
 public class TestRunner { 
 
 	private TestNGCucumberRunner testNGCucumberRunner;
-
 	public static RemoteWebDriver connection;
-
 	protected static Properties propOR;
 	protected static Properties propConfig;
-
 	public static ExtentReports extent;
 	
 	@BeforeSuite
