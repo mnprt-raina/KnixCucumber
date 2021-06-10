@@ -122,7 +122,6 @@ public class ToDoStepDefinition extends TestRunner{
 				}
 				//open the drodown again
 				getWebElement(dropdown).click();
-				System.out.println();
 			} 
 		}catch(Exception e) {
 			test.log(Status.INFO,e.getMessage());
@@ -148,13 +147,13 @@ public class ToDoStepDefinition extends TestRunner{
 
 		actualSizes = actualSizes.substring(1,actualSizes.length());
 
-		test.log(Status.INFO,actualSizes);
+		test.log(Status.INFO,"Actual size order list :"+actualSizes);
 
 		if(expectedSizes.equals(actualSizes)) {
 			CustReporter.pass(test, extent, "The sizes are in sorted order.");	
 		}
 		else{
-			CustReporter.fail(test, extent, "The sizes are not in sorted order. Expected : "+expectedSizes);	
+			CustReporter.fail(test, extent, "The sizes are not in sorted order. Expected size order : "+expectedSizes);	
 		}
 	}
 
@@ -163,7 +162,7 @@ public class ToDoStepDefinition extends TestRunner{
 		try {
 			WebElement ele;
 			ele = getWebElement(locator);
-			ele.click();
+			clickElement(ele);
 		}catch(Exception e) {
 			CustReporter.fail(test, extent, "Exception occurred : "+e.getMessage());
 		}
@@ -189,27 +188,28 @@ public class ToDoStepDefinition extends TestRunner{
 			String actual = getWebElement(dropdown).getText();
 
 			if(toSelect.equals(actual)) {	
-				CustReporter.pass(test, extent,"Shows selected item");
+				CustReporter.pass(test, extent,"Selected size is being shown. Expected : "+toSelect +" . Actual : "+actual);
 			}else {
-				CustReporter.fail(test, extent,"Selected item is not shown");
+				CustReporter.fail(test, extent,"Selected size is not being shown. Expected : "+toSelect +" . Actual : "+actual);
 			}
 
 		}	
 
 	}
 
-	@Given("^Validate if User is shown Email me when Available on (.*)$")
-	public void validate_main_add_text(String mainButton) {
-		WebElement ele;
-		ele = getWebElement(mainButton);
-
-		if (ele.getText().equals(Constants.EMAILWHENAVAILABLE)) {
-			CustReporter.pass(test, extent,"The main button contains the required text");
-		}else {
-			CustReporter.fail(test, extent,"report Failure. The main button does not contain the required text");
-		}
-
-	}
+	/*
+	 * @Given("^Validate if User is shown Email me when Available on (.*)$") public
+	 * void validate_main_add_text(String mainButton) { WebElement ele; ele =
+	 * getWebElement(mainButton);
+	 * 
+	 * if (ele.getText().equals(Constants.EMAILWHENAVAILABLE)) {
+	 * CustReporter.pass(test, extent,"The main button contains the required text");
+	 * }else { CustReporter.fail(test,
+	 * extent,"report Failure. The main button does not contain the required text");
+	 * }
+	 * 
+	 * }
+	 */
 
 	@Then("^Validate (.*) for all (.*)$")
 	public void validateLimitedColours(String limcolour,String fittingSize) {
@@ -243,17 +243,17 @@ public class ToDoStepDefinition extends TestRunner{
 				
 				if(!textOfAddToBag.equals("Add to Bag") || stockInfoText.contains("Sorry")){
 					if(e.getAttribute("class").contains("disabled")) {
-						CustReporter.pass(test, extent,"the "+ colourName +" button is crossed out");
+						CustReporter.pass(test, extent,"the "+ colourName +" button is crossed out for an out of stock item.");
 					}else {
-						CustReporter.fail(test, extent,"the "+ colourName +" button is not crossed out");
+						CustReporter.fail(test, extent,"the "+ colourName +" button is not crossed out for an out of stock item.");
 					}
 				}
 
 				if(stockInfoText.contains("Sorry")) {
 					if(textOfAddToBag.equals("Add to Bag")) {
-						CustReporter.fail(test, extent,"Add to Bag is available for an out of stock item");
+						CustReporter.fail(test, extent,"Add to Bag is available for an out of stock item.");
 					}else {
-						CustReporter.pass(test, extent,"Add to bag is unavailable of an out of stock item");
+						CustReporter.pass(test, extent,"Add to bag is unavailable of an out of stock item.");
 					}
 				}
 			}
@@ -262,27 +262,26 @@ public class ToDoStepDefinition extends TestRunner{
 
 
 
-	@Then("^Validate that the (.*) is disabled$")
-	public void validate_button_disabled(String mainButton) {
-		WebElement ele;
-		ele = getWebElement(mainButton);
-
-		if (ele.getAttribute("class").contains("disabled")) {
-			CustReporter.pass(test, extent,"the button is disabled");
-		}else {
-			CustReporter.fail(test, extent,"the button is enabled");
-		}
-
-	}
+	/*
+	 * @Then("^Validate that the (.*) is disabled$") public void
+	 * validate_button_disabled(String mainButton) { WebElement ele; ele =
+	 * getWebElement(mainButton);
+	 * 
+	 * if (ele.getAttribute("class").contains("disabled")) { CustReporter.pass(test,
+	 * extent,"the button is disabled"); }else { CustReporter.fail(test,
+	 * extent,"the button is enabled"); }
+	 * 
+	 * }
+	 */
 
 	@Then("^Validate user is unable to add item to the bag$")
 	public void unable_to_add_to_cart(){
 		WebElement e = getWebElement("additemtobag");
 		e.click();
 		if(e.getText().equals("Select Size")){
-			CustReporter.pass(test, extent,"User is unable to add item to cart without selecting size");
+			CustReporter.pass(test, extent,"User is unable to add item to cart without selecting size.");
 		}else {
-			CustReporter.fail(test, extent,"User is able to add item to cart without selecting size");
+			CustReporter.fail(test, extent,"User is able to add item to cart without selecting size.");
 		}
 	}
 
@@ -304,9 +303,9 @@ public class ToDoStepDefinition extends TestRunner{
 		bag = getWebElement(bagItem);
 
 		if (bag.getAttribute("class").contains("yourBag")) {
-			CustReporter.pass(test, extent,"The item has been added to the cart");
+			CustReporter.pass(test, extent,"The item has been added to the cart.");
 		}else {
-			CustReporter.fail(test, extent,"The item has not been added to the cart");
+			CustReporter.fail(test, extent,"The item has not been added to the cart.");
 		}
 
 	}
@@ -424,7 +423,7 @@ public class ToDoStepDefinition extends TestRunner{
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			String var = (String) js.executeScript("return arguments[0].getAttribute('style', arguments[1]);", element); 
 			js.executeScript("return arguments[0].setAttribute('style', arguments[1]);", element, "border: 4px solid red; ");
-			Thread.sleep(150);
+			Thread.sleep(170);
 			js.executeScript("arguments[0].setAttribute('style', arguments[1]);", element, var);
 		}catch(Throwable t) {
 		}
