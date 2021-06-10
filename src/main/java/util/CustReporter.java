@@ -4,17 +4,16 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.logging.FileHandler;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.MediaEntityBuilder;
 import com.aventstack.extentreports.Status;
+import com.aventstack.extentreports.model.Media;
 
 import stepDefinitions.ToDoStepDefinition;
 
@@ -33,14 +32,15 @@ public class CustReporter {
 	}
 	
 	public static void fail(ExtentTest test,ExtentReports extent, String msg) {
-		test = test.addScreenCaptureFromPath(takeScreenshot(ToDoStepDefinition.driver));
-		test.log(Status.FAIL, "<b>"+msg+"</b>");
+		Media m = MediaEntityBuilder.createScreenCaptureFromPath(takeScreenshot()).build();
+		test.log(Status.FAIL, "<b>"+msg+"</b>",m);
 		extent.flush();
 	}
 	
-	public static String takeScreenshot(WebDriver driver)  {
+	
+	public static String takeScreenshot()  {
 		String dateName = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
-	    TakesScreenshot ts = (TakesScreenshot)driver;
+	    TakesScreenshot ts = (TakesScreenshot)(ToDoStepDefinition.driver);
 	    File source = ts.getScreenshotAs(OutputType.FILE);
 	    String destination = System.getProperty("user.dir") + "/screenshots/" + dateName+"_"+ iCounter++ + ".png";
 	    File finalDestination = new File(destination);

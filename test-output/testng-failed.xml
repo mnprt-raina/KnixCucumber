@@ -5,7 +5,7 @@
     <classes>
       <class name="MyRunner.TestRunner">
         <methods>
-          <include name="feature" invocation-numbers="2"/>
+          <include name="feature" invocation-numbers="0"/>
           <include name="create"/>
           <include name="tearDownClass"/>
           <include name="setUpCucumber"/>

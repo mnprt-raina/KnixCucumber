@@ -18,7 +18,7 @@ import cucumber.api.testng.TestNGCucumberRunner;
 import helper.Constants;
 
 @CucumberOptions(
-		features = "src/main/java/Features/",
+		features = "src/main/java/Features/OutOfStock.feature",
 		glue = {"stepDefinitions"},
 		monochrome = true)
 		

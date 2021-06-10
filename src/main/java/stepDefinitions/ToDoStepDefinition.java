@@ -151,10 +151,10 @@ public class ToDoStepDefinition extends TestRunner{
 		test.log(Status.INFO,actualSizes);
 
 		if(expectedSizes.equals(actualSizes)) {
-			CustReporter.pass(test, extent, "passed");	
+			CustReporter.pass(test, extent, "The sizes are in sorted order.");	
 		}
 		else{
-			CustReporter.fail(test, extent, "failed");	
+			CustReporter.fail(test, extent, "The sizes are not in sorted order. Expected : "+expectedSizes);	
 		}
 	}
 
