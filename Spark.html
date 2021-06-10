@@ -35,7 +35,7 @@
 <a href="#"><span class="badge badge-primary"></span></a>
 </li>
 <li class="m-r-10">
-<a href="#"><span class="badge badge-primary">Jun 8, 2021 09:41:16 PM</span></a>
+<a href="#"><span class="badge badge-primary">Jun 9, 2021 08:47:26 PM</span></a>
 </li>
 </ul>
 </div>
@@ -45,6 +45,11 @@
 <li class="nav-item dropdown" onclick="toggleView('test-view')">
 <a id="nav-test" class="dropdown-toggle" href="#">
 <span class="ico"><i class="fa fa-list"></i></span>
+</a>
+</li>
+<li class="nav-item dropdown" onclick="toggleView('category-view')">
+<a id="nav-category" class="dropdown-toggle" href="#">
+<span class="ico"><i class="fa fa-tag"></i></span>
 </a>
 </li>
 <li class="nav-item dropdown" onclick="toggleView('dashboard-view')">
@@ -66,22 +71,70 @@
 <li class="dropdown">
 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-exclamation-circle"></i></a>
 <ul id="status-toggle" class="dropdown-menu dropdown-md p-v-0">
+<a class="dropdown-item" status="pass" href="#"><span>Pass</span><span class="status success"></span></a>
 <a class="dropdown-item" status="fail" href="#"><span>Fail</span><span class="status danger"></span></a>
 <div class="dropdown-divider"></div>
 <a status="clear" class="dropdown-item" href="#"><span>Clear</span><span class="pull-right"><i class="fa fa-close"></i></span></a>
 </ul>
 </li>
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-tag"></i></a>
+<ul id="tag-toggle" class="dropdown-menu dropdown-md p-v-0">
+<a class="dropdown-item" href="#">chrome</a><a class="dropdown-item" href="#">firefox</a><a class="dropdown-item" href="#">edge</a>
+</ul>
+</li>
 </ul>
 </div>    <div class="test-list-wrapper scrollable">
       <ul class="test-list-item">
-        <li class="test-item"  status="fail" test-id="1"
+        <li class="test-item"  status="pass" test-id="1"
           author=""
-          tag=""
+          tag="edge"
+          device="">
+          <div class="test-detail">
+            <p class="name">Able to Add to bag</p>
+            <p class="text-sm">
+              <span>8:47:27 PM</span> / <span>00:00:17:901</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">Able to Add to bag</h5>
+<span class='badge badge-success'>06.09.2021 8:47:27 PM</span>
+<span class='badge badge-danger'>06.09.2021 8:47:45 PM</span>
+<span class='badge badge-default'>00:00:17:901</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=1</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">edge</span></div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>8:47:45 PM</td>
+        <td>
+          The item has been added to the cart
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="fail" test-id="2"
+          author=""
+          tag="chrome"
           device="">
           <div class="test-detail">
             <p class="name">User is unable to add any out of stock limited edition color to cart</p>
             <p class="text-sm">
-              <span>9:41:16 PM</span> / <span>00:00:35:310</span>
+              <span>8:47:46 PM</span> / <span>00:01:31:171</span>
               <span class="badge fail-bg log float-right">Fail</span>
             </p>
           </div>
@@ -90,28 +143,77 @@
 <div class="p-v-10">
 <div class="info">
 <h5 class="test-status text-fail">User is unable to add any out of stock limited edition color to cart</h5>
-<span class='badge badge-success'>06.08.2021 9:41:16 PM</span>
-<span class='badge badge-danger'>06.08.2021 9:41:52 PM</span>
-<span class='badge badge-default'>00:00:35:310</span>
-&middot; <span class='uri-anchor badge badge-default'>#test-id=1</span>
+<span class='badge badge-success'>06.09.2021 8:47:46 PM</span>
+<span class='badge badge-danger'>06.09.2021 8:49:17 PM</span>
+<span class='badge badge-default'>00:01:31:171</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=2</span>
 <span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
 <span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
 </div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">chrome</span></div>
 </div>
-</div><div class="detail-body mt-4">
+</div>    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='C:\Users\mnprt\Downloads\cucumber-testng-sample-master/screenshots/20210609084807_0.png' src="C:\Users\mnprt\Downloads\cucumber-testng-sample-master/screenshots/20210609084807_0.png">
+    
+    </div></div>
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='C:\Users\mnprt\Downloads\cucumber-testng-sample-master/screenshots/20210609084812_1.png' src="C:\Users\mnprt\Downloads\cucumber-testng-sample-master/screenshots/20210609084812_1.png">
+    
+    </div></div>
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='C:\Users\mnprt\Downloads\cucumber-testng-sample-master/screenshots/20210609084817_2.png' src="C:\Users\mnprt\Downloads\cucumber-testng-sample-master/screenshots/20210609084817_2.png">
+    
+    </div></div>
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='C:\Users\mnprt\Downloads\cucumber-testng-sample-master/screenshots/20210609084822_3.png' src="C:\Users\mnprt\Downloads\cucumber-testng-sample-master/screenshots/20210609084822_3.png">
+    
+    </div></div>
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='C:\Users\mnprt\Downloads\cucumber-testng-sample-master/screenshots/20210609084827_4.png' src="C:\Users\mnprt\Downloads\cucumber-testng-sample-master/screenshots/20210609084827_4.png">
+    
+    </div></div>
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='C:\Users\mnprt\Downloads\cucumber-testng-sample-master/screenshots/20210609084833_5.png' src="C:\Users\mnprt\Downloads\cucumber-testng-sample-master/screenshots/20210609084833_5.png">
+    
+    </div></div>
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='C:\Users\mnprt\Downloads\cucumber-testng-sample-master/screenshots/20210609084838_6.png' src="C:\Users\mnprt\Downloads\cucumber-testng-sample-master/screenshots/20210609084838_6.png">
+    
+    </div></div>
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='C:\Users\mnprt\Downloads\cucumber-testng-sample-master/screenshots/20210609084843_7.png' src="C:\Users\mnprt\Downloads\cucumber-testng-sample-master/screenshots/20210609084843_7.png">
+    
+    </div></div>
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='C:\Users\mnprt\Downloads\cucumber-testng-sample-master/screenshots/20210609084848_8.png' src="C:\Users\mnprt\Downloads\cucumber-testng-sample-master/screenshots/20210609084848_8.png">
+    
+    </div></div>
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='C:\Users\mnprt\Downloads\cucumber-testng-sample-master/screenshots/20210609084853_9.png' src="C:\Users\mnprt\Downloads\cucumber-testng-sample-master/screenshots/20210609084853_9.png">
+    
+    </div></div>
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='C:\Users\mnprt\Downloads\cucumber-testng-sample-master/screenshots/20210609084855_10.png' src="C:\Users\mnprt\Downloads\cucumber-testng-sample-master/screenshots/20210609084855_10.png">
+    
+    </div></div>
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='C:\Users\mnprt\Downloads\cucumber-testng-sample-master/screenshots/20210609084855_11.png' src="C:\Users\mnprt\Downloads\cucumber-testng-sample-master/screenshots/20210609084855_11.png">
+    
+    </div></div>
+<div class="detail-body mt-4">
 <table class="table table-sm">
   <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
   <tbody>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>9:41:31 PM</td>
+        <td>8:48:01 PM</td>
         <td>
           the colour is : Default
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>9:41:32 PM</td>
+        <td>8:48:01 PM</td>
         <td>
           the size is : 1
 Fits 32A, 34A, 32B
@@ -119,7 +221,7 @@ Fits 32A, 34A, 32B
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>9:41:32 PM</td>
+        <td>8:48:02 PM</td>
         <td>
           the size is : 2
 Fits 36A, 34B, 32C
@@ -127,14 +229,14 @@ Fits 36A, 34B, 32C
       </tr>
       <tr class="event-row">
         <td><span class="badge log fail-bg">Fail</span></td>
-        <td>9:41:32 PM</td>
+        <td>8:48:07 PM</td>
         <td>
-          <b>the Default button is enabled</b>
+          <b>the Default button is not crossed out</b>
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>9:41:32 PM</td>
+        <td>8:48:07 PM</td>
         <td>
           the size is : 3
 Fits 36B, 38B, 36C
@@ -142,14 +244,14 @@ Fits 36B, 38B, 36C
       </tr>
       <tr class="event-row">
         <td><span class="badge log fail-bg">Fail</span></td>
-        <td>9:41:32 PM</td>
+        <td>8:48:12 PM</td>
         <td>
-          <b>the Default button is enabled</b>
+          <b>the Default button is not crossed out</b>
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>9:41:32 PM</td>
+        <td>8:48:12 PM</td>
         <td>
           the size is : 4
 Fits 34C, 32D, 34D
@@ -157,14 +259,14 @@ Fits 34C, 32D, 34D
       </tr>
       <tr class="event-row">
         <td><span class="badge log fail-bg">Fail</span></td>
-        <td>9:41:32 PM</td>
+        <td>8:48:17 PM</td>
         <td>
-          <b>the Default button is enabled</b>
+          <b>the Default button is not crossed out</b>
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>9:41:32 PM</td>
+        <td>8:48:18 PM</td>
         <td>
           the size is : 5
 Fits 38C, 40C, 36D, 38D
@@ -172,14 +274,14 @@ Fits 38C, 40C, 36D, 38D
       </tr>
       <tr class="event-row">
         <td><span class="badge log fail-bg">Fail</span></td>
-        <td>9:41:32 PM</td>
+        <td>8:48:23 PM</td>
         <td>
-          <b>the Default button is enabled</b>
+          <b>the Default button is not crossed out</b>
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>9:41:33 PM</td>
+        <td>8:48:23 PM</td>
         <td>
           the size is : 6
 Fits 32DD, 34DD, 32E, 34E
@@ -187,14 +289,14 @@ Fits 32DD, 34DD, 32E, 34E
       </tr>
       <tr class="event-row">
         <td><span class="badge log fail-bg">Fail</span></td>
-        <td>9:41:33 PM</td>
+        <td>8:48:28 PM</td>
         <td>
-          <b>the Default button is enabled</b>
+          <b>the Default button is not crossed out</b>
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>9:41:33 PM</td>
+        <td>8:48:28 PM</td>
         <td>
           the size is : 6+
 Fits 32F, 34F, 32G, 34G
@@ -202,14 +304,14 @@ Fits 32F, 34F, 32G, 34G
       </tr>
       <tr class="event-row">
         <td><span class="badge log fail-bg">Fail</span></td>
-        <td>9:41:33 PM</td>
+        <td>8:48:33 PM</td>
         <td>
-          <b>the Default button is enabled</b>
+          <b>the Default button is not crossed out</b>
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>9:41:33 PM</td>
+        <td>8:48:33 PM</td>
         <td>
           the size is : 7+
 Fits 36F, 38F, 36G, 38G
@@ -217,28 +319,28 @@ Fits 36F, 38F, 36G, 38G
       </tr>
       <tr class="event-row">
         <td><span class="badge log fail-bg">Fail</span></td>
-        <td>9:41:33 PM</td>
+        <td>8:48:38 PM</td>
         <td>
-          <b>the Default button is enabled</b>
+          <b>the Default button is not crossed out</b>
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>9:41:33 PM</td>
+        <td>8:48:39 PM</td>
         <td>
           the size is : 8+
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log fail-bg">Fail</span></td>
-        <td>9:41:33 PM</td>
+        <td>8:48:43 PM</td>
         <td>
-          <b>the Default button is enabled</b>
+          <b>the Default button is not crossed out</b>
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>9:41:33 PM</td>
+        <td>8:48:44 PM</td>
         <td>
           the size is : 7
 Fits 36DD, 38DD, 36E, 38E
@@ -246,14 +348,14 @@ Fits 36DD, 38DD, 36E, 38E
       </tr>
       <tr class="event-row">
         <td><span class="badge log fail-bg">Fail</span></td>
-        <td>9:41:33 PM</td>
+        <td>8:48:49 PM</td>
         <td>
-          <b>the Default button is enabled</b>
+          <b>the Default button is not crossed out</b>
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>9:41:34 PM</td>
+        <td>8:48:49 PM</td>
         <td>
           the size is : 8
 Fits 40D, 42D, 40DD, 42DD, 40E, 42E
@@ -261,21 +363,21 @@ Fits 40D, 42D, 40DD, 42DD, 40E, 42E
       </tr>
       <tr class="event-row">
         <td><span class="badge log fail-bg">Fail</span></td>
-        <td>9:41:34 PM</td>
+        <td>8:48:54 PM</td>
         <td>
-          <b>the Default button is enabled</b>
+          <b>the Default button is not crossed out</b>
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>9:41:34 PM</td>
+        <td>8:48:54 PM</td>
         <td>
           the colour is : Slate Grey
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>9:41:34 PM</td>
+        <td>8:48:54 PM</td>
         <td>
           the size is : 1
 Fits 32A, 34A, 32B
@@ -283,14 +385,21 @@ Fits 32A, 34A, 32B
       </tr>
       <tr class="event-row">
         <td><span class="badge log fail-bg">Fail</span></td>
-        <td>9:41:34 PM</td>
+        <td>8:48:55 PM</td>
         <td>
-          <b>the Slate Grey button is enabled</b>
+          <b>the Slate Grey button is not crossed out</b>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log fail-bg">Fail</span></td>
+        <td>8:48:56 PM</td>
+        <td>
+          <b>Add to Bag is available for an out of stock item</b>
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>9:41:34 PM</td>
+        <td>8:48:56 PM</td>
         <td>
           the size is : 2
 Fits 36A, 34B, 32C
@@ -298,7 +407,7 @@ Fits 36A, 34B, 32C
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>9:41:34 PM</td>
+        <td>8:48:57 PM</td>
         <td>
           the size is : 3
 Fits 36B, 38B, 36C
@@ -306,7 +415,7 @@ Fits 36B, 38B, 36C
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>9:41:34 PM</td>
+        <td>8:48:58 PM</td>
         <td>
           the size is : 4
 Fits 34C, 32D, 34D
@@ -314,7 +423,7 @@ Fits 34C, 32D, 34D
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>9:41:35 PM</td>
+        <td>8:48:58 PM</td>
         <td>
           the size is : 5
 Fits 38C, 40C, 36D, 38D
@@ -322,7 +431,7 @@ Fits 38C, 40C, 36D, 38D
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>9:41:35 PM</td>
+        <td>8:48:59 PM</td>
         <td>
           the size is : 6
 Fits 32DD, 34DD, 32E, 34E
@@ -330,7 +439,7 @@ Fits 32DD, 34DD, 32E, 34E
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>9:41:35 PM</td>
+        <td>8:49:00 PM</td>
         <td>
           the size is : 6+
 Fits 32F, 34F, 32G, 34G
@@ -338,7 +447,7 @@ Fits 32F, 34F, 32G, 34G
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>9:41:35 PM</td>
+        <td>8:49:01 PM</td>
         <td>
           the size is : 7+
 Fits 36F, 38F, 36G, 38G
@@ -346,14 +455,14 @@ Fits 36F, 38F, 36G, 38G
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>9:41:35 PM</td>
+        <td>8:49:02 PM</td>
         <td>
           the size is : 8+
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>9:41:36 PM</td>
+        <td>8:49:03 PM</td>
         <td>
           the size is : 7
 Fits 36DD, 38DD, 36E, 38E
@@ -361,7 +470,7 @@ Fits 36DD, 38DD, 36E, 38E
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>9:41:36 PM</td>
+        <td>8:49:03 PM</td>
         <td>
           the size is : 8
 Fits 40D, 42D, 40DD, 42DD, 40E, 42E
@@ -369,44 +478,30 @@ Fits 40D, 42D, 40DD, 42DD, 40E, 42E
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>9:41:36 PM</td>
+        <td>8:49:04 PM</td>
         <td>
           the colour is : Amethyst
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>9:41:36 PM</td>
+        <td>8:49:04 PM</td>
         <td>
           the size is : 1
 Fits 32A, 34A, 32B
         </td>
       </tr>
       <tr class="event-row">
-        <td><span class="badge log pass-bg">Pass</span></td>
-        <td>9:41:36 PM</td>
-        <td>
-          the Amethyst button is disabled
-        </td>
-      </tr>
-      <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>9:41:37 PM</td>
+        <td>8:49:05 PM</td>
         <td>
           the size is : 2
 Fits 36A, 34B, 32C
         </td>
       </tr>
       <tr class="event-row">
-        <td><span class="badge log pass-bg">Pass</span></td>
-        <td>9:41:37 PM</td>
-        <td>
-          the Amethyst button is disabled
-        </td>
-      </tr>
-      <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>9:41:37 PM</td>
+        <td>8:49:06 PM</td>
         <td>
           the size is : 3
 Fits 36B, 38B, 36C
@@ -414,14 +509,21 @@ Fits 36B, 38B, 36C
       </tr>
       <tr class="event-row">
         <td><span class="badge log pass-bg">Pass</span></td>
-        <td>9:41:37 PM</td>
+        <td>8:49:07 PM</td>
         <td>
-          the Amethyst button is disabled
+          the Amethyst button is crossed out
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>8:49:07 PM</td>
+        <td>
+          Add to bag is unavailable of an out of stock item
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>9:41:37 PM</td>
+        <td>8:49:07 PM</td>
         <td>
           the size is : 4
 Fits 34C, 32D, 34D
@@ -429,59 +531,45 @@ Fits 34C, 32D, 34D
       </tr>
       <tr class="event-row">
         <td><span class="badge log pass-bg">Pass</span></td>
-        <td>9:41:37 PM</td>
+        <td>8:49:08 PM</td>
         <td>
-          the Amethyst button is disabled
+          the Amethyst button is crossed out
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>8:49:08 PM</td>
+        <td>
+          Add to bag is unavailable of an out of stock item
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>9:41:38 PM</td>
+        <td>8:49:08 PM</td>
         <td>
           the size is : 5
 Fits 38C, 40C, 36D, 38D
         </td>
       </tr>
       <tr class="event-row">
-        <td><span class="badge log pass-bg">Pass</span></td>
-        <td>9:41:38 PM</td>
-        <td>
-          the Amethyst button is disabled
-        </td>
-      </tr>
-      <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>9:41:38 PM</td>
+        <td>8:49:09 PM</td>
         <td>
           the size is : 6
 Fits 32DD, 34DD, 32E, 34E
         </td>
       </tr>
       <tr class="event-row">
-        <td><span class="badge log pass-bg">Pass</span></td>
-        <td>9:41:38 PM</td>
-        <td>
-          the Amethyst button is disabled
-        </td>
-      </tr>
-      <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>9:41:38 PM</td>
+        <td>8:49:10 PM</td>
         <td>
           the size is : 6+
 Fits 32F, 34F, 32G, 34G
         </td>
       </tr>
       <tr class="event-row">
-        <td><span class="badge log pass-bg">Pass</span></td>
-        <td>9:41:38 PM</td>
-        <td>
-          the Amethyst button is disabled
-        </td>
-      </tr>
-      <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>9:41:38 PM</td>
+        <td>8:49:10 PM</td>
         <td>
           the size is : 7+
 Fits 36F, 38F, 36G, 38G
@@ -489,28 +577,28 @@ Fits 36F, 38F, 36G, 38G
       </tr>
       <tr class="event-row">
         <td><span class="badge log pass-bg">Pass</span></td>
-        <td>9:41:39 PM</td>
+        <td>8:49:11 PM</td>
         <td>
-          the Amethyst button is disabled
+          the Amethyst button is crossed out
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>8:49:11 PM</td>
+        <td>
+          Add to bag is unavailable of an out of stock item
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>9:41:39 PM</td>
+        <td>8:49:11 PM</td>
         <td>
           the size is : 8+
         </td>
       </tr>
       <tr class="event-row">
-        <td><span class="badge log pass-bg">Pass</span></td>
-        <td>9:41:39 PM</td>
-        <td>
-          the Amethyst button is disabled
-        </td>
-      </tr>
-      <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>9:41:39 PM</td>
+        <td>8:49:12 PM</td>
         <td>
           the size is : 7
 Fits 36DD, 38DD, 36E, 38E
@@ -518,17 +606,298 @@ Fits 36DD, 38DD, 36E, 38E
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>9:41:52 PM</td>
+        <td>8:49:17 PM</td>
         <td>
           the size is : 8
 Fits 40D, 42D, 40DD, 42DD, 40E, 42E
         </td>
       </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="3"
+          author=""
+          tag="edge"
+          device="">
+          <div class="test-detail">
+            <p class="name">User is able to select all available sizes</p>
+            <p class="text-sm">
+              <span>8:49:18 PM</span> / <span>00:00:20:358</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">User is able to select all available sizes</h5>
+<span class='badge badge-success'>06.09.2021 8:49:18 PM</span>
+<span class='badge badge-danger'>06.09.2021 8:49:39 PM</span>
+<span class='badge badge-default'>00:00:20:358</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=3</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">edge</span></div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
       <tr class="event-row">
         <td><span class="badge log pass-bg">Pass</span></td>
-        <td>9:41:52 PM</td>
+        <td>8:49:35 PM</td>
         <td>
-          the Amethyst button is disabled
+          Shows selected item
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>8:49:35 PM</td>
+        <td>
+          Shows selected item
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>8:49:36 PM</td>
+        <td>
+          Shows selected item
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>8:49:36 PM</td>
+        <td>
+          Shows selected item
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>8:49:36 PM</td>
+        <td>
+          Shows selected item
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>8:49:37 PM</td>
+        <td>
+          Shows selected item
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>8:49:37 PM</td>
+        <td>
+          Shows selected item
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>8:49:37 PM</td>
+        <td>
+          Shows selected item
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>8:49:38 PM</td>
+        <td>
+          Shows selected item
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>8:49:38 PM</td>
+        <td>
+          Shows selected item
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>8:49:39 PM</td>
+        <td>
+          Shows selected item
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="fail" test-id="4"
+          author=""
+          tag="firefox"
+          device="">
+          <div class="test-detail">
+            <p class="name">Size shown below image</p>
+            <p class="text-sm">
+              <span>8:49:39 PM</span> / <span>00:00:27:989</span>
+              <span class="badge fail-bg log float-right">Fail</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-fail">Size shown below image</h5>
+<span class='badge badge-success'>06.09.2021 8:49:39 PM</span>
+<span class='badge badge-danger'>06.09.2021 8:50:07 PM</span>
+<span class='badge badge-default'>00:00:27:989</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=4</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">firefox</span></div>
+</div>
+</div>    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='C:\Users\mnprt\Downloads\cucumber-testng-sample-master/screenshots/20210609084957_12.png' src="C:\Users\mnprt\Downloads\cucumber-testng-sample-master/screenshots/20210609084957_12.png">
+    
+    </div></div>
+<div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log fail-bg">Fail</span></td>
+        <td>8:49:58 PM</td>
+        <td>
+          <b>size mismatch . selectedSizeText :1
+ 32A, 34A, 32B and caption image : Abuk is a 34B, she’s wearing a size 2 bra. Her bottoms are the Essential Thong.</b>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>8:49:59 PM</td>
+        <td>
+          size found . selectedSizeText :2
+ 36A, 34B, 32C and caption image : Abuk is a 34B, she’s wearing a size 2 bra. Her bottoms are the Essential Thong.
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>8:50:00 PM</td>
+        <td>
+          size found . selectedSizeText :3
+ 36B, 38B, 36C and caption image : Nikita is a 36C, she’s wearing a size 3 bra. Her bottom are the Leakproof Boyshort
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>8:50:01 PM</td>
+        <td>
+          size found . selectedSizeText :4
+ 34C, 32D, 34D and caption image : Claire is a 32DD, she’s wearing a size 4 bra. Her bottoms are the Essential Bikini
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>8:50:02 PM</td>
+        <td>
+          size found . selectedSizeText :5
+ 38C, 40C, 36D, 38D and caption image : Michelle is a 36D, she’s wearing a size 5 bra. Her bottoms are the Athletic Bikini
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>8:50:02 PM</td>
+        <td>
+          size found . selectedSizeText :6
+ 32DD, 34DD, 32E, 34E and caption image : Anastasia is a 34F, she's wearing a Knix size 6+
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>8:50:03 PM</td>
+        <td>
+          size found . selectedSizeText :6+
+ 32F, 34F, 32G, 34G and caption image : Anastasia is a 34F, she's wearing a Knix size 6+
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>8:50:04 PM</td>
+        <td>
+          Caption must be present for size : 7+
+ 36F, 38F, 36G, 38G
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>8:50:05 PM</td>
+        <td>
+          size found . selectedSizeText :8+ and caption image : Khadijah is a 40F and wearing a size 8+ bra.
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>8:50:06 PM</td>
+        <td>
+          Caption must be present for size : 7
+ 36DD, 38DD, 36E, 38E
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>8:50:07 PM</td>
+        <td>
+          size found . selectedSizeText :8
+ 40D, 42D, 40DD, 42DD, 40E, 42E and caption image : Brittnee is a 38D, she’s wearing a size 8 bra. Her bottoms are the Essential Cheeky.
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="fail" test-id="5"
+          author=""
+          tag="firefox"
+          device="">
+          <div class="test-detail">
+            <p class="name">Size sort</p>
+            <p class="text-sm">
+              <span>8:50:09 PM</span> / <span>00:00:19:178</span>
+              <span class="badge fail-bg log float-right">Fail</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-fail">Size sort</h5>
+<span class='badge badge-success'>06.09.2021 8:50:09 PM</span>
+<span class='badge badge-danger'>06.09.2021 8:50:28 PM</span>
+<span class='badge badge-default'>00:00:19:178</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=5</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">firefox</span></div>
+</div>
+</div>    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='C:\Users\mnprt\Downloads\cucumber-testng-sample-master/screenshots/20210609085027_13.png' src="C:\Users\mnprt\Downloads\cucumber-testng-sample-master/screenshots/20210609085027_13.png">
+    
+    </div></div>
+<div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>8:50:27 PM</td>
+        <td>
+          1,2,3,4,5,6,6+,7+,8+,7,8
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log fail-bg">Fail</span></td>
+        <td>8:50:28 PM</td>
+        <td>
+          <b>failed</b>
         </td>
       </tr>
   </tbody>
@@ -545,30 +914,159 @@ Fits 40D, 42D, 40DD, 42DD, 40E, 42E
 </div>
 <div class="test-content-detail"><div class="detail-body"></div></div>
 </div></div>
-<div class="container-fluid p-4 view dashboard-view">
+<div class="test-wrapper row view category-view attributes-view">
+<div class="test-list">
+<div class="test-list-tools">
+<ul class="tools pull-left"><li><a href=""><span class="font-size-14">Category</span></a></li></ul>
+<ul class="tools text-right"><li><a href="#"><span class="badge badge-primary">3</span></a></li></ul>
+</div>
+<div class="test-list-wrapper scrollable">
+<ul class="test-list-item">
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log badge-danger'>1</span>
+</span>
+<p class="name">chrome</p>
+<p class="duration text-sm">1 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>chrome</h4>
+<span status="fail" class='badge log badge-danger'>1 failed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>20:47:46 PM</td>
+<td>
+<a href="#" class="linked" test-id='2' id='2'>User is unable to add any out of stock limited edition color to cart</a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log badge-danger'>2</span>
+</span>
+<p class="name">firefox</p>
+<p class="duration text-sm">2 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>firefox</h4>
+<span status="fail" class='badge log badge-danger'>2 failed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>20:49:39 PM</td>
+<td>
+<a href="#" class="linked" test-id='4' id='4'>Size shown below image</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>20:50:09 PM</td>
+<td>
+<a href="#" class="linked" test-id='5' id='5'>Size sort</a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log pass-bg'>2</span>
+</span>
+<p class="name">edge</p>
+<p class="duration text-sm">2 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>edge</h4>
+<span status="pass" class='badge log pass-bg'>2 passed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>20:47:27 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='1'>Able to Add to bag</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>20:49:18 PM</td>
+<td>
+<a href="#" class="linked" test-id='3' id='3'>User is able to select all available sizes</a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="test-content scrollable">
+<div class="test-content-detail">
+<div class="detail-body"></div>
+</div>
+</div>
+</div><div class="container-fluid p-4 view dashboard-view">
 <div class="row">
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Started</p>
-<h3>Jun 8, 2021 09:41:16 PM</h3>
+<h3>Jun 9, 2021 08:47:26 PM</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Ended</p>
-<h3>Jun 8, 2021 09:41:52 PM</h3>
+<h3>Jun 9, 2021 08:50:28 PM</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0 text-pass">Tests Passed</p>
-<h3>0</h3>
+<h3>2</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0 text-fail">Tests Failed</p>
-<h3>1</h3>
+<h3>3</h3>
 </div></div>
 </div>
 </div>
@@ -584,12 +1082,12 @@ Fits 40D, 42D, 40DD, 42DD, 40E, 42E
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='0%'>
-<b>0</b> tests passed
+<div><small data-tooltip='40%'>
+<b>2</b> tests passed
 </small>
 </div>
 <div>
-<small data-tooltip='100%'><b>1</b> tests failed,
+<small data-tooltip='60%'><b>3</b> tests failed,
 <b>0</b> skipped, <b data-tooltip='0%'>0</b> others
 </small>
 </div>
@@ -607,10 +1105,10 @@ Fits 40D, 42D, 40DD, 42DD, 40E, 42E
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='17%'><b>10</b> events passed</small></div>
+<div><small data-tooltip='32%'><b>26</b> events passed</small></div>
 <div>
-<small data-tooltip='19%'><b>11</b> events failed,
-<b data-tooltip='%'>36</b> others
+<small data-tooltip='17%'><b>14</b> events failed,
+<b data-tooltip='%'>39</b> others
 </small>
 </div>
 </div>
@@ -626,17 +1124,50 @@ Fits 40D, 42D, 40DD, 42DD, 40E, 42E
 </div></div>
 <script>
 var timeline = {
-"User is unable to add any out of stock limited edition color to cart":35.31
+"Able to Add to bag":17.901,"User is unable to add any out of stock limited edition color to cart":91.171,"User is able to select all available sizes":20.358,"Size shown below image":27.989,"Size sort":19.178
 };
 </script>
 <div class="row">
+<div class="col-lg-6 col-md-12 category-container">
+<div class="card">
+<div class="card-header"><p>Tags</p></div>
+<div class="card-body pb-0 pt-0"><table class="table table-sm table-bordered">
+<thead><tr class="bg-gray"><th>Name</th><th>Passed</th><th>Failed</th><th>Skipped</th><th>Others</th><th>Passed %</th></tr></thead><tbody>
+<tr>
+<td>chrome</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0%</td>
+</tr>
+<tr>
+<td>firefox</td>
+<td>0</td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0%</td>
+</tr>
+<tr>
+<td>edge</td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
 </div>
 </div>
 <script>
 var statusGroup = {
 parentCount: 5,
-passParent: 0,
-failParent: 1,
+passParent: 2,
+failParent: 3,
 warningParent: 0,
 skipParent: 0,
 childCount: 5,
@@ -652,11 +1183,11 @@ warningGrandChild: 0,
 skipGrandChild: 0,
 infoGrandChild: 0,
 eventsCount: 5,
-passEvents: 10,
-failEvents: 11,
+passEvents: 26,
+failEvents: 14,
 warningEvents: 0,
 skipEvents: 0,
-infoEvents: 36
+infoEvents: 39
 };
 </script>        </div>
       </div>
