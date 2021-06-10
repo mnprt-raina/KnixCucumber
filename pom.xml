@@ -3,12 +3,12 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>Cucumber-Selenium-TestNG</groupId>
-	<artifactId>CucumberTestNG</artifactId>
+	<groupId>KnixCucumber</groupId>
+	<artifactId>KnixCucumber</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>CucumberTestNG</name>
+	<name>KnixCucumber</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>
